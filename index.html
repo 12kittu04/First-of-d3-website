@@ -1,0 +1,402 @@
+
+<html>
+
+<head>
+    <style>
+        body {
+            font: 60px;
+            font-family: Arial;
+            color: rgb(1, 14, 14);
+            background-color: rgb(189, 200, 228);
+        }
+
+        path { 
+            stroke: rgb(22, 53, 79);
+            stroke-width: 2;
+            fill: none;
+        }
+            .axis path,
+            .axis line {
+            fill: none;
+            stroke: grey;
+            stroke-width: 2;
+            shape-rendering: crispEdges;
+  }
+
+    .graphc
+    {
+    height: 1500px;
+    width: 55%;
+    float: left;
+    border-style: solid;
+    border-color: #030000;
+    
+    }
+    .graphcont {
+        display: none;
+        padding: 6px 12px;
+        background-color: rgb(0, 0, 0);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    
+  
+
+    
+
+
+    .fixed1 {
+            position: fixed;
+            top: 70px;
+            right: 75px;
+            background-color: #4491c1;
+            width: 550px;
+            border-radius: 5px;
+        }
+
+       
+         
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                margin-top: 20px;
+            }
+
+
+           
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                margin-top: 20px;
+            }
+
+
+            .dropdown button {
+                background-color: #3157c7;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .dropdown button:hover{
+                background-color: #a5abd4;
+            }
+
+            .dropdown-content {
+                display: none;
+                max-height: 400;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                overflow-y: auto;
+            }
+
+            .dropdown-content a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    }
+
+                   
+             .dropdown-content a:hover {
+                        background-color: #3498db;
+                        color: white;
+                    }
+
+                 .dropdown:hover .dropdown-content {
+                        display: block;
+                    }
+
+        h1 {
+            background-color: #1e4f8e;
+            text-align: center;
+            color: rgb(197, 198, 218);
+            padding: 5px;
+        }
+ 
+
+    </style>
+    <script src="d3.js"></script>
+        
+    </head>
+
+
+    <body>
+        <h1> US Unemployment Rates From 2013-2023</h1>
+
+        <div class = "graphc" class = "graphcont" style="margin-right: 475px;">
+            <h1 align="center">Unemployment By State</h1>
+            <p> Unemployment By State</p>
+        </div>
+
+        <div id ="selection" class="fixed1">
+            <div style="margin: 30px; width: 650px; height: 500px;">
+                
+                <div class="dropdown">
+                    <button class="dropdown button">Dropdown</button>
+                    <div class="dropdown-content">
+                        <a href="#" data-state="Alabama">Alabama</a>
+                        <a href="#" data-state="Alaska">Alaska</a>
+                        <a href="#" data-state="Arizona">Arizona</a>
+                        <a href="#" data-state="Arkansas">Arkansas</a>
+                        <a href="#" data-state="California">California</a>
+                        <a href="#" data-state="Colorado">Colorado</a>
+                        <a href="#" data-state="Connecticut">Connecticut</a>
+                        <a href="#" data-state="Delaware">Delaware</a>
+                        <a href="#" data-state="Florida">Florida</a>
+                        <a href="#" data-state="Georgia">Georgia</a>
+                        <a href="#" data-state="Hawaii">Hawaii</a>
+                        <a href="#" data-state="Idaho">Idaho</a>
+                        <a href="#" data-state="Illinois">Illinois</a>
+                        <a href="#" data-state="Indiana">Indiana</a>
+                        <a href="#" data-state="Iowa">Iowa</a>
+                        <a href="#" data-state="Kansas">Kansas</a>
+                        <a href="#" data-state="Kentucky">Kentucky</a>
+                        <a href="#" data-state="Louisiana">Louisiana</a>
+                        <a href="#" data-state="Maine">Maine</a>
+                        <a href="#" data-state="Maryland">Maryland</a>
+                        <a href="#" data-state="Massachusetts">Massachusetts</a>
+                        <a href="#" data-state="Michigan">Michigan</a>
+                        <a href="#" data-state="Minnesota">Minnesota</a>
+                        <a href="#" data-state="Mississippi">Mississippi</a>
+                        <a href="#" data-state="Missouri">Missouri</a>
+                        <a href="#" data-state="Montana">Montana</a>
+                        <a href="#" data-state="Nebraska">Nebraska</a>
+                        <a href="#" data-state="Nevada">Nevada</a>
+                        <a href="#" data-state="New Hampshire">New Hampshire</a>
+                        <a href="#" data-state="New Jersey">New Jersey</a>
+                        <a href="#" data-state="New Mexico">New Mexico</a>
+                        <a href="#" data-state="New York">New York</a>
+                        <a href="#" data-state="North Carolina">North Carolina</a>
+                        <a href="#" data-state="North Dakota">North Dakota</a>
+                        <a href="#" data-state="Ohio">Ohio</a>
+                        <a href="#" data-state="Oklahoma">Oklahoma</a>
+                        <a href="#" data-state="Oregon">Oregon</a>
+                        <a href="#" data-state="Pennsylvania">Pennsylvania</a>
+                        <a href="#" data-state="Rhode Island">Rhode Island</a>
+                        <a href="#" data-state="South Carolina">South Carolina</a>
+                        <a href="#" data-state="South Dakota">South Dakota</a>
+                        <a href="#" data-state="Tennessee">Tennessee</a>
+                        <a href="#" data-state="Texas">Texas</a>
+                        <a href="#" data-state="Utah">Utah</a>
+                        <a href="#" data-state="Vermont">Vermont</a>
+                        <a href="#" data-state="Virginia">Virginia</a>
+                        <a href="#" data-state="Washington">Washington</a>
+                        <a href="#" data-state="West Virginia">West Virginia</a>
+                        <a href="#" data-state="Wisconsin">Wisconsin</a>
+                        <a href="#" data-state="Wyoming">Wyoming</a>
+                        <a href="#" data-state="Puerto Rico">Puerto Rico</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            const margin = { top: 20, right: 0.6, bottom: 80, left: 40 },
+                width = 1000- margin.left - margin.right
+                height = 800 - margin.top - margin.bottom
+
+            const svg = d3.select(".graphc")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom )
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            const parseDate = d3.timeParse("%b-%y");
+
+            const y = d3.scaleLinear().range([height,0]);
+            const x = d3.scaleBand().range([0, width]);
+
+            const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+            d3.csv("Unemp.csv").then(function(data) {
+                const states = data.columns.slice(1);
+
+                const startDate = parseDate("Aug-13");
+                const endDate = parseDate("Aug-23");
+
+
+                const [minValue, maxValue] = d3.extent(data, function(d) {
+                    return d3.min(states, function(state) {
+                        return +d[state];
+                    });
+                });
+                /// DIY-ed the ydomain cuz the function is being weird
+                y.domain([0, 32]);
+                x.domain(data.map(function(d) { return d[data.columns[0]]; })); 
+
+                states.forEach(function(state, i) {
+                    const line = d3.line()
+                        .x(function(d) { return x(d[data.columns[0]]); })
+                        .y(function(d) { return y(d[state]); });
+
+                    svg.append("path")
+                        .datum(data)
+                        .attr("class", "line")
+                        .attr("d", line)
+                        .style("stroke", color(i))
+                        .attr("data-state", state); 
+                });
+
+                svg.append("g")
+                    .attr("class", "x-axis")
+                    .attr("transform", `translate(0,${height})`)
+                    .call(d3.axisBottom(x));
+
+                svg.selectAll(".x-axis text")
+                    .style("text-anchor", "end")
+                    .attr("dx", "-1em")
+                    .attr("dy", "0.15em")
+                    .attr("transform", "rotate(-90)");
+
+                svg.append("g")
+                    .attr("class", "y-axis")
+                    .call(d3.axisLeft(y));
+
+                var div = d3.select("body").append("div")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
+
+
+                d3.selectAll(".dropdown-content a").on("click", function() {
+                    const state = d3.select(this).attr("data-state");
+                    svg.selectAll(".line")
+                        .style("stroke-width", "1px")
+                        .style("opacity", 0.5);
+                    svg.selectAll(`.line[data-state="${state}"]`)
+                        .style("stroke-width", "3px")
+                        .style("opacity", 1);
+                });
+
+            }).catch(function(error) {
+                console.log(error);
+            });
+
+        </script>
+    </body>
+
+    </html>
+    
+    </script>
+</body>
+
+</html>
+ 
+<style>
+    body {
+        background-color: black;
+    }
+    .axis path,
+    .axis line {
+        stroke: white;
+    }
+    .line {
+        stroke: neon;
+    }
+    .x-axis text,
+    .y-axis text {
+        fill: white;
+    }
+</style>
+
+<div class="graphc"></div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+
+    const margin = { top: 20, right: 10, bottom: 80, left: 40 },
+        width = 1000- margin.left - margin.right
+        height = 450 - margin.top - margin.bottom
+
+    const svg = d3.select(".graphc")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom )
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    const parseDate = d3.timeParse("%b-%y");
+
+    const y = d3.scaleLinear().range([height,0]);
+    const x = d3.scaleBand().range([0, width]);
+
+    const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    d3.csv("Unemp.csv").then(function(data) {
+        const states = data.columns.slice(1);
+
+        const startDate = parseDate("Aug-13");
+        const endDate = parseDate("Aug-23");
+
+
+        const [minValue, maxValue] = d3.extent(data, function(d) {
+            return d3.min(states, function(state) {
+                return +d[state];
+            });
+        });
+        /// DIY-ed the ydomain cuz the function is being weird
+        y.domain([0, 32]);
+        x.domain(data.map(function(d) { return d[data.columns[0]]; })); 
+
+        states.forEach(function(state, i) {
+            const line = d3.line()
+                .x(function(d) { return x(d[data.columns[0]]); })
+                .y(function(d) { return y(d[state]); });
+
+            svg.append("path")
+                .datum(data)
+                .attr("class", "line")
+                .attr("d", line)
+                .style("stroke", color(i))
+                .attr("data-state", state); 
+        });
+
+        svg.append("g")
+            .attr("class", "x-axis")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x));
+
+        svg.selectAll(".x-axis text")
+            .style("text-anchor", "end")
+            .attr("dx", "-1em")
+            .attr("dy", "0.15em")
+            .attr("transform", "rotate(-90)")
+            .style("fill", "white");
+
+        svg.append("g")
+            .attr("class", "y-axis")
+            .call(d3.axisLeft(y));
+
+        svg.selectAll(".y-axis text")
+            .style("fill", "white");
+
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+
+        d3.selectAll(".dropdown-content a").on("click", function() {
+            const state = d3.select(this).attr("data-state");
+            svg.selectAll(".line")
+                .style("stroke-width", "1px")
+                .style("opacity", 0.5);
+            svg.selectAll(`.line[data-state="${state}"]`)
+                .style("stroke-width", "3px")
+                .style("opacity", 1);
+        });
+
+    }).catch(function(error) {
+        console.log(error);
+    });
+
+</script>
+///Due next wed
+//extend file with sector   make interactivecomparison scheme minimalist
